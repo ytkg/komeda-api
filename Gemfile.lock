@@ -24,7 +24,7 @@ GEM
     hashie (5.0.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
-    komeda (0.2.14)
+    komeda (0.2.15)
       activesupport
       hashie
       psych (>= 3.1.0)
