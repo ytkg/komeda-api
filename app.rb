@@ -3,11 +3,20 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/json'
+require 'faraday'
 require 'komeda'
+require_relative './usecases/root_usecase'
+require_relative './lib/todoist/client'
 
 class App < Sinatra::Application
   not_found do
     json({ error: 'Not found' })
+  end
+
+  get '/' do
+    result = RootUsecase.execute
+
+    json(result)
   end
 
   get '/:category' do

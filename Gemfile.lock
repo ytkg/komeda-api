@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/ytkg/hitoku.git
+  revision: eb50b0a514a25bbc00406e451741d77962c0dc70
+  specs:
+    hitoku (0.1.0)
+      activesupport
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -21,9 +28,16 @@ GEM
     connection_pool (2.5.0)
     date (3.4.1)
     drb (2.2.1)
+    faraday (2.12.2)
+      faraday-net_http (>= 2.0, < 3.5)
+      json
+      logger
+    faraday-net_http (3.4.0)
+      net-http (>= 0.5.0)
     hashie (5.0.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
+    json (2.10.2)
     komeda (0.2.16)
       activesupport
       hashie
@@ -33,6 +47,8 @@ GEM
     multi_json (1.15.0)
     mustermann (3.0.3)
       ruby2_keywords (~> 0.0.1)
+    net-http (0.6.0)
+      uri
     nio4r (2.7.4)
     psych (5.2.3)
       date
@@ -69,9 +85,12 @@ GEM
     uri (1.0.3)
 
 PLATFORMS
+  x86_64-darwin-23
   x86_64-linux
 
 DEPENDENCIES
+  faraday
+  hitoku!
   komeda
   puma
   sinatra
