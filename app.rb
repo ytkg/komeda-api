@@ -8,6 +8,15 @@ require 'komeda'
 require_relative './usecases/root_usecase'
 require_relative './lib/todoist/client'
 
+def cache
+  return unless block_given?
+
+  $cache ||= {}
+  key = Time.now.strftime('%Y%d%m%H%M')
+
+  $cache[key] ||= yield
+end
+
 class App < Sinatra::Application
   before do
     response.headers['Access-Control-Allow-Origin'] = '*'
@@ -18,7 +27,7 @@ class App < Sinatra::Application
   end
 
   get '/' do
-    result = RootUsecase.execute
+    result = cache { RootUsecase.execute }
 
     json(result)
   end
