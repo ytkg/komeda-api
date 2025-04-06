@@ -50,8 +50,14 @@ class RootUsecase
         name: menu_data[:name],
         large_type: menu_data[:large_type],
         photo_url: menu_data[:photo_url],
-        completed_at: item[:completed_at]&.to_date
+        completed_at: to_jst(item[:completed_at])&.to_date
       }
+    end
+
+    def to_jst(completed_at)
+      return nil if completed_at.nil?
+
+      Time.parse(completed_at).getlocal('+09:00')
     end
   end
 end
