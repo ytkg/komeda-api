@@ -4,6 +4,7 @@ require 'hitoku'
 class RootUsecase
   class << self
     PROJECT_ID = 2351634984
+    CATEGORY_MAP = { '1-2' => 'ドリンク', '1-3' => 'デザート', '1-4' => 'スナック' }
 
     def execute
       incomplete_menus = fetch_incomplete_menus
@@ -49,6 +50,7 @@ class RootUsecase
         id: menu_data[:id],
         name: menu_data[:name],
         large_type: menu_data[:large_type],
+        category: CATEGORY_MAP[menu_data[:large_type]],
         photo_url: menu_data[:photo_url],
         completed_at: to_jst(item[:completed_at])&.to_date
       }
