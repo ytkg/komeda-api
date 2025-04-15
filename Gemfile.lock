@@ -38,7 +38,7 @@ GEM
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     json (2.10.2)
-    komeda (0.2.16)
+    komeda (0.3.0)
       activesupport
       hashie
       psych (>= 3.1.0)
