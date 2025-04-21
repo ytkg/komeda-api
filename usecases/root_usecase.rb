@@ -1,10 +1,10 @@
 require 'date'
 require 'hitoku'
+require 'komeda'
 
 class RootUsecase
   class << self
     PROJECT_ID = 2351634984
-    CATEGORY_MAP = { '1-2' => 'ドリンク', '1-3' => 'デザート', '1-4' => 'スナック' }
 
     def execute
       incomplete_menus = fetch_incomplete_menus
@@ -18,11 +18,14 @@ class RootUsecase
     def menu_info
       return @menu_info if @menu_info.present?
 
-      response = Faraday.get('https://eu.komeda.co.jp/v1/hp/menu')
-      menus = JSON.parse(response.body, symbolize_names: true)[:menus]
+      menus_by_category = {
+        'スナック' => Komeda.foods,
+        'ドリンク' => Komeda.drinks,
+        'デザート' => Komeda.desserts
+      }
 
-      @menu_info = menus.each_with_object({}) do |item, hash|
-        hash[item[:id]] = item
+      @menu_info = menus_by_category.each_with_object({}) do |(category, items), hash|
+        items.each { |item| hash[item[:id]] = item.merge(category: category) }
       end
     end
 
@@ -46,13 +49,7 @@ class RootUsecase
       match_data = item[:content].match(/(\d+): .*/)
       menu_data = menu_info[match_data[1]]
 
-      {
-        id: menu_data[:id],
-        name: menu_data[:name],
-        category: CATEGORY_MAP[menu_data[:large_type]],
-        photo_url: menu_data[:photo_url],
-        completed_at: to_jst(item[:completed_at])&.to_date
-      }
+      menu_data.merge(completed_at: to_jst(item[:completed_at])&.to_date)
     end
 
     def to_jst(completed_at)
