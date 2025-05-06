@@ -5,6 +5,13 @@ GIT
     hitoku (0.1.0)
       activesupport
 
+GIT
+  remote: https://github.com/ytkg/todoist_cms.git
+  revision: 9f2dbbb69c02cb90ea89a5b3c95b4c37611f03d7
+  specs:
+    todoist_cms (0.1.0)
+      faraday
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -89,12 +96,12 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  faraday
   hitoku!
   komeda
   puma
   sinatra
   sinatra-contrib
+  todoist_cms!
 
 RUBY VERSION
    ruby 3.3.5p100

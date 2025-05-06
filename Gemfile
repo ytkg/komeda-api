@@ -9,6 +9,6 @@ gem 'sinatra-contrib'
 
 gem 'puma'
 
-gem 'faraday'
 gem 'hitoku', github: 'ytkg/hitoku'
 gem 'komeda'
+gem 'todoist_cms', github: 'ytkg/todoist_cms'

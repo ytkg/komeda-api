@@ -3,10 +3,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/json'
-require 'faraday'
 require 'komeda'
 require_relative './usecases/root_usecase'
-require_relative './lib/todoist/client'
 
 def cache
   return unless block_given?
