@@ -32,7 +32,7 @@ GEM
     benchmark (0.4.0)
     bigdecimal (3.1.9)
     concurrent-ruby (1.3.5)
-    connection_pool (2.5.0)
+    connection_pool (2.5.3)
     date (3.4.1)
     drb (2.2.1)
     faraday (2.13.0)
@@ -45,7 +45,7 @@ GEM
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     json (2.10.2)
-    komeda (0.3.0)
+    komeda (0.3.2)
       activesupport
       hashie
       psych (>= 3.1.0)
@@ -57,7 +57,7 @@ GEM
     net-http (0.6.0)
       uri
     nio4r (2.7.4)
-    psych (5.2.3)
+    psych (5.2.4)
       date
       stringio
     puma (6.6.0)
@@ -85,7 +85,7 @@ GEM
       rack-protection (= 4.1.1)
       sinatra (= 4.1.1)
       tilt (~> 2.0)
-    stringio (3.1.6)
+    stringio (3.1.7)
     tilt (2.6.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
