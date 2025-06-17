@@ -35,7 +35,7 @@ GEM
     connection_pool (2.5.0)
     date (3.4.1)
     drb (2.2.1)
-    faraday (2.13.0)
+    faraday (2.13.1)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
@@ -44,7 +44,7 @@ GEM
     hashie (5.0.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
-    json (2.10.2)
+    json (2.11.3)
     komeda (0.3.0)
       activesupport
       hashie
